@@ -25,6 +25,8 @@ windows = { version = "0.58", features = [
   "UI_Notifications_Management",
   "UI_Notifications",
   "Foundation_Collections",
+  # Needed for UserNotification::AppInfo -> AppDisplayInfo::DisplayName.
+  "ApplicationModel",
 ] }
 
 [features]

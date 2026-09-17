@@ -210,9 +210,7 @@ async fn fetch_windows_toasts() -> Result<Vec<RawToast>, String> {
 /// Best-effort read of a single `UserNotification`. Returns None when the
 /// toast can't be understood (we skip it rather than fail the whole poll).
 #[cfg(windows)]
-fn read_one_toast(
-    user_notif: &windows::UI::Notifications::Management::UserNotification,
-) -> Option<RawToast> {
+fn read_one_toast(user_notif: &windows::UI::Notifications::UserNotification) -> Option<RawToast> {
     let app = user_notif
         .AppInfo()
         .and_then(|info| info.DisplayInfo())
@@ -228,7 +226,8 @@ fn read_one_toast(
         .and_then(|binding| binding.GetTextElements())
         .map(|texts| {
             let mut parts: Vec<String> = Vec::new();
-            for text in texts.into_iter().flatten() {
+            // IVectorView iterates as plain items (not Results).
+            for text in texts {
                 if let Ok(t) = text.Text() {
                     let s = t.to_string();
                     if !s.trim().is_empty() {

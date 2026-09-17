@@ -23,6 +23,11 @@ cargo test -p notifbuddy # Rust unit tests
 ```
 
 PRs run these in CI (`.github/workflows/ci.yml`).
+`#[cfg(windows)]` code (the WinRT listener) only compiles on the Windows
+runner, so it is gated by the beta workflow — if you touch `watcher.rs`,
+watch the beta run after merging (or type-check locally with
+`cargo check --target x86_64-pc-windows-msvc`, noting `tauri-winres`
+needs Windows; the pure-WinRT fns can be checked in isolation).
 
 ## How beta releases work
 
