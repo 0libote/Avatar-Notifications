@@ -103,6 +103,9 @@ jobs:
             echo "RELEASES.md unchanged, nothing to commit"
           else
             git commit -m "docs: update beta release file to $BETA_VERSION [skip ci]"
+            # Discard build-time modifications (stamped versions); the repo
+            # intentionally stays at 0.1.0 and rebase needs a clean tree.
+            git checkout -- .
             git pull --rebase origin main
             git push origin HEAD:main
           fi
