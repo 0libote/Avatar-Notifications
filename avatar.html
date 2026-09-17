@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotifBuddy Pal</title>
+    <link rel="stylesheet" href="/src/avatar.css" />
+  </head>
+  <body>
+    <div id="stage">
+      <div id="bubble" class="hidden"><span id="bubble-text"></span></div>
+      <div id="buddy-wrap">
+        <canvas id="buddy"></canvas>
+        <div id="badge" class="hidden">0</div>
+        <div id="zzz" class="hidden">z z z</div>
+      </div>
+      <div id="caption"><span id="caption-text">NotifBuddy</span></div>
+      <div id="controls">
+        <button id="btn-open" title="Open dashboard">▦</button>
+        <button id="btn-snooze" title="Snooze 30 min">☾</button>
+        <button id="btn-quit" title="Quit">✕</button>
+      </div>
+    </div>
+    <script type="module" src="/src/avatar.ts"></script>
+  </body>
+</html>

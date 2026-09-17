@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NotifBuddy</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <canvas id="mini-buddy" width="48" height="48"></canvas>
+        <div class="title">
+          <h1>NotifBuddy</h1>
+          <p id="subtitle">Your pixel pal is watching 👀</p>
+        </div>
+        <div id="unread-pill" class="pill">0 unread</div>
+      </header>
+
+      <section class="card" id="listener-card">
+        <div class="row spread">
+          <div>
+            <h2>Windows listener</h2>
+            <p id="listener-detail" class="muted">Checking…</p>
+          </div>
+          <button id="btn-access" class="primary">Request access</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="row spread">
+          <h2>Inbox</h2>
+          <div class="row gap">
+            <div id="filters" class="row gap">
+              <button data-filter="all" class="chip active">All</button>
+              <button data-filter="unread" class="chip">Unread</button>
+            </div>
+            <button id="btn-read-all" class="ghost">Mark all read</button>
+            <button id="btn-clear" class="ghost">Clear read</button>
+          </div>
+        </div>
+        <div id="app-filters" class="row gap wrap"></div>
+        <ul id="inbox"></ul>
+        <p id="inbox-empty" class="muted hidden">Nothing here. When a watched app posts a toast, your buddy will catch it. ✨</p>
+        <div class="row gap wrap simulate">
+          <span class="muted">Test:</span>
+          <button class="ghost" data-sim="Outlook">📧 Outlook email</button>
+          <button class="ghost" data-sim="Teams">💬 Teams message</button>
+          <button class="ghost" data-sim="Slack">💜 Slack ping</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Watched apps</h2>
+        <p class="muted">Only toasts from enabled apps wake your buddy. Names match loosely (“Outlook” catches “Microsoft Outlook”).</p>
+        <div class="row gap">
+          <input id="watch-input" type="text" placeholder="Add app, e.g. Notion" maxlength="40" />
+          <button id="btn-watch-add" class="primary">Add</button>
+          <button id="btn-watch-reset" class="ghost">Reset defaults</button>
+        </div>
+        <ul id="watchlist"></ul>
+      </section>
+
+      <section class="card">
+        <h2>Choose your buddy</h2>
+        <div id="buddy-grid"></div>
+      </section>
+
+      <section class="card">
+        <h2>Display</h2>
+        <label class="slider">Size <span id="size-val"></span>
+          <input id="size" type="range" min="64" max="144" step="4" />
+        </label>
+        <label class="slider">Opacity <span id="opacity-val"></span>
+          <input id="opacity" type="range" min="0.4" max="1" step="0.05" />
+        </label>
+        <div class="row gap wrap">
+          <span class="muted">Pin avatar:</span>
+          <button class="ghost" data-pos="tl">↖ Top-left</button>
+          <button class="ghost" data-pos="tr">↗ Top-right</button>
+          <button class="ghost" data-pos="bl">↙ Bottom-left</button>
+          <button class="ghost" data-pos="br">↘ Bottom-right</button>
+        </div>
+        <p class="muted">Tip: you can also drag the buddy anywhere — it remembers where you left it.</p>
+      </section>
+
+      <footer class="row spread">
+        <span class="muted">NotifBuddy v0.1.0 · MVP</span>
+        <button id="btn-quit" class="danger">Quit app</button>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

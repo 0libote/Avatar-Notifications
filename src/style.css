@@ -1,0 +1,358 @@
+/* NotifBuddy dashboard — cute, clean, productive. */
+
+:root {
+  --ink: #33334d;
+  --ink-soft: #6b6b8a;
+  --bg: #f4f1ea;
+  --card: #ffffff;
+  --mint: #6fdcbd;
+  --mint-dark: #3fa98a;
+  --pink: #ff9db0;
+  --red: #ff5d73;
+  --yellow: #ffd93d;
+  --radius: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 22px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+#mini-buddy {
+  width: 52px;
+  height: 52px;
+  image-rendering: pixelated;
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 0 3px 0 var(--ink);
+}
+
+.title h1 {
+  margin: 0;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+}
+
+.title p {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.pill {
+  margin-left: auto;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.pill.hot {
+  background: var(--red);
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 0 rgba(51, 51, 77, 0.9);
+  padding: 16px;
+}
+
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+
+.muted {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.spread {
+  justify-content: space-between;
+}
+
+.gap {
+  gap: 8px;
+}
+
+.wrap {
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 2px solid var(--ink);
+  padding: 7px 12px;
+  cursor: pointer;
+  background: #fff;
+  color: var(--ink);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button.primary {
+  background: var(--mint);
+}
+
+button.primary:hover {
+  background: var(--mint-dark);
+  color: #fff;
+}
+
+button.ghost {
+  background: #fff;
+}
+
+button.danger {
+  background: var(--red);
+  color: #fff;
+}
+
+.chip {
+  padding: 5px 12px;
+  font-size: 12px;
+}
+
+.chip.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Inbox */
+#inbox,
+#watchlist {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notif {
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: #fffdf7;
+}
+
+.notif.unread {
+  background: #eefbf4;
+  border-left-width: 6px;
+  border-left-color: var(--mint-dark);
+}
+
+.notif .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--mint-dark);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.notif.read-item .dot {
+  background: #cfcfe0;
+}
+
+.notif .body {
+  flex: 1;
+  min-width: 0;
+}
+
+.notif .app-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  background: var(--yellow);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  padding: 1px 7px;
+  margin-right: 6px;
+}
+
+.notif .time {
+  font-size: 11px;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.notif h3 {
+  margin: 4px 0 2px;
+  font-size: 14px;
+}
+
+.notif p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.notif .actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.notif .actions button {
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.simulate {
+  border-top: 1.5px dashed #d5d5e5;
+  padding-top: 10px;
+}
+
+/* Watchlist */
+#watch-input {
+  flex: 1;
+  min-width: 180px;
+  font-family: inherit;
+  font-size: 14px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid var(--ink);
+}
+
+.watch-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: #fffdf7;
+}
+
+.watch-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--mint-dark);
+}
+
+.watch-row .name {
+  flex: 1;
+  font-weight: 700;
+}
+
+.watch-row.off .name {
+  color: var(--ink-soft);
+  text-decoration: line-through;
+}
+
+.watch-row .rm {
+  padding: 3px 9px;
+}
+
+/* Buddy grid */
+#buddy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.buddy-card {
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: center;
+  background: #fffdf7;
+  cursor: pointer;
+}
+
+.buddy-card canvas {
+  width: 72px;
+  height: 72px;
+  image-rendering: pixelated;
+}
+
+.buddy-card h3 {
+  margin: 6px 0 2px;
+  font-size: 14px;
+}
+
+.buddy-card p {
+  margin: 0;
+  font-size: 11.5px;
+  color: var(--ink-soft);
+}
+
+.buddy-card.selected {
+  background: #e4f9ef;
+  outline: 3px solid var(--mint-dark);
+}
+
+/* Sliders */
+.slider {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 10px 0;
+}
+
+.slider input {
+  display: block;
+  width: 100%;
+  accent-color: var(--mint-dark);
+}
+
+footer {
+  padding: 4px 2px;
+}

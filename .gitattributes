@@ -1,0 +1,11 @@
+# Normalize line endings + mark binaries so Windows checkouts work cleanly.
+* text=auto eol=lf
+
+# Pixel art / icons / installers are binary.
+*.png binary
+*.ico binary
+*.icns binary
+*.msi binary
+*.exe binary
+*.dll binary
+*.node binary
