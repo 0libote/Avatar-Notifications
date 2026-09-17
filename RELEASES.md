@@ -9,12 +9,19 @@ bundler requires it). The repo itself stays at `0.1.0`; the number is stamped
 at build time by `scripts/stamp-version.mjs`.
 
 <!-- BETA-START -->
+## Latest beta — v0.1.3
 
-## Latest beta — not published yet
+- **Published:** 2026-09-17T09:57:21Z
+- **Commit:** [165ae5b](https://github.com/0libote/Avatar-Notifications/commit/165ae5b10222c50136c50617703f599fd595c77e)
+- **Build:** [actions run](https://github.com/0libote/Avatar-Notifications/actions/runs/35207351590)
+- **Release page:** [beta prerelease](https://github.com/0libote/Avatar-Notifications/releases/tag/beta)
 
-Push to `main` to trigger the first beta build
-([workflow](https://github.com/0libote/Avatar-Notifications/actions/workflows/beta-release.yml)).
+### Installers (Windows x64)
 
+- [NotifBuddy_0.1.3_x64-setup.exe](https://github.com/0libote/Avatar-Notifications/releases/download/beta/NotifBuddy_0.1.3_x64-setup.exe)
+- [NotifBuddy_0.1.3_x64_en-US.msi](https://github.com/0libote/Avatar-Notifications/releases/download/beta/NotifBuddy_0.1.3_x64_en-US.msi)
+
+> SmartScreen may warn on first install (unsigned beta). Click "More info" → "Run anyway".
 <!-- BETA-END -->
 
 ## Beta history
@@ -22,6 +29,7 @@ Push to `main` to trigger the first beta build
 <!-- BETA-HISTORY-START -->
 | Version | Date | Commit | Installer |
 | ------- | ---- | ------ | --------- |
+| v0.1.3 | 2026-09-17 | 165ae5b | [download](https://github.com/0libote/Avatar-Notifications/releases/download/beta/NotifBuddy_0.1.3_x64-setup.exe) |
 <!-- BETA-HISTORY-END -->
 
 ## Stable releases
